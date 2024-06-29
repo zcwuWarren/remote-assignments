@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+
+/* because of the user-agent stylesheets,
+reset all attributes for header to touch to screen edge*/
+body { 
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgb(235, 235, 235);
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    padding: 0 30px;
+    margin: 0 10px;
+}
+
+/*When you create a flex container , the child elements become flex items. 
+The descendants of the flex container beyond the children do not become flex items
+and, therefore, do not accept flex properties.*/
+header, ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    margin-left: 2rem;
+}
+
+.menu {
+    margin-right: 2rem;
+}
+
+.banner {
+    background-color: rgb(205, 220, 235);
+    padding: 5rem; 
+    text-align: center;
+}
+
+.section {
+    padding: 1rem;
+    text-align: center;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 0 auto;
+}
+
+.box {
+    text-align: center;
+    padding-top: .5rem;
+    padding-bottom: 8rem;
+    background-color: rgb(135, 150, 165);
+}
+
+.hiddenRow {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 0 auto 1.5rem;
+}
+
+.button {
+    display: flex;
+    width: fit-content;
+    background-color: rgb(220, 235, 250);
+    padding: 1rem;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.menu li {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* media query */
+@media screen and (min-width: 1200px) {
+    .row, .hiddenRow {
+        width: 1200px;
+    }
+}
+
+/*======border to show the box model======
+.header {
+    border: 1px dashed;
+}
+
+header {
+    border: 1px solid;
+}
+
+li {
+    border: 1px solid;
+}
+
+ul {
+    border: 2px solid;
+}
+
+.row {
+    border: 1px solid;
+}
+
+.box {
+    border: 1px solid;
+}*/

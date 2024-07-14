@@ -1,0 +1,36 @@
+<!--add ty to render success sign in-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+    <div>
+        <h1>Sign in</h1>
+        <div>
+            <form action="/memberpage" method="POST"> <!--form-data enctype attribute default is enctype="application/x-www-form-urlencoded">-->
+                <label for="verifyEmail">email:</label>
+                <input type="email" id="verifyEmail" name="email" required="required"><br>
+                <label for="verifyPassword">password:</label>
+                <input type="password" id="verifyPassword" name="password" required="required"><br>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+
+        <h2 th:if="${error}" th:text="${error}"></h2>
+        <div>
+            <h1>Creat account</h1>
+            <form action="/create" method="POST">
+                <label for="createEmail">email:</label>
+                <input type="email" id="createEmail" name="email" required="required"><br>
+                <label for="createPassword">password:</label>
+                <input type="password" id="createPassword" name="password" required="required"><br>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+        <h2 th:if="${signup_error}" th:text="${signup_error}"></h2>
+
+    </div>
+</body>
+</html>

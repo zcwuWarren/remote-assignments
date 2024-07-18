@@ -31,6 +31,7 @@ public class UserController {
     @PostMapping("/memberpage")
     // @RequestBody only handling JSON, but form-data default enctype is url-encode,so if ass @RequestBody will get error
     // use RedirectAttributes to pass attribute to redirect url
+    // use addFlashAttribute to make attribute removed after next request (while use addAttribute will show in query string)
     public String getUser(@ModelAttribute UserRequest userRequest, RedirectAttributes redirectAttributes) {
         String email = userRequest.getEmail();
         String password = userRequest.getPassword();
@@ -39,7 +40,7 @@ public class UserController {
         if (getUserInfo != null) {
             return "greeting";
         } else {
-            redirectAttributes.addAttribute("error", "Invalid email or password");
+            redirectAttributes.addFlashAttribute("error", "Invalid email or password");
         }
         return "redirect:/";
     }
@@ -51,7 +52,7 @@ public class UserController {
 
         User checkUserInfo = service.checkUser(email);
         if (checkUserInfo != null) {
-            redirectAttributes.addAttribute("signup_error", "User already exists");
+            redirectAttributes.addFlashAttribute("signup_error", "User already exists");
             return "redirect:/";
         }
 
